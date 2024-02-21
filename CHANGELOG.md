@@ -10,6 +10,8 @@ adheres to [Semantic Versioning][semver].
 
 ## [Unreleased]
 
+## [0.0.1-alpha.1] - 2024-02-21
+
 ### Added
 
 - Added initial implementation of the project
