@@ -4,6 +4,10 @@ import "database/sql"
 
 type PostgresSQL struct{}
 
+func (p *PostgresSQL) Name() string {
+	return "pgx"
+}
+
 func (p *PostgresSQL) CreateSchemaMigrationsTable(db *sql.DB) error {
 	_, err := db.Exec("CREATE TABLE IF NOT EXISTS schema_migrations(version TEXT);")
 	return err

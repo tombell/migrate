@@ -6,6 +6,7 @@ import (
 )
 
 type Driver interface {
+	Name() string
 	CreateSchemaMigrationsTable(db *sql.DB) error
 	HasMigrationBeenApplied(db *sql.DB, version string) (bool, error)
 	MarkMigrationAsApplied(tx *sql.Tx, version string) error
@@ -14,9 +15,9 @@ type Driver interface {
 
 func NewDriver(driver string) (Driver, error) {
 	switch driver {
-	case "postgres", "pgx":
+	case "postgresql", "postgres", "psql":
 		return &PostgresSQL{}, nil
-	case "sqlite", "sqlite3":
+	case "sqlite":
 		return &SQLite{}, nil
 	}
 	return nil, fmt.Errorf("unsupported database driver (%s)", driver)
