@@ -16,8 +16,9 @@ var (
 )
 
 var rootCmd = &cobra.Command{
-	Use:  "migrate",
-	Long: "Migrate is a database migration tool for PostgreSQL and SQLite",
+	Use:     "migrate",
+	Version: fmt.Sprintf("%s (%s)", Version, Commit),
+	Long:    "Migrate is a database migration tool for PostgreSQL and SQLite",
 }
 
 func init() {
